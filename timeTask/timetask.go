@@ -13,3 +13,9 @@ func AddTimeTask(duration time.Duration, myfunc JobFunc) {
 		myfunc()
 	}
 }
+
+func AddTimeAsynTask(duration time.Duration, myfunc JobFunc) {
+	go func() {
+		AddTimeTask(duration, myfunc)
+	}()
+}
